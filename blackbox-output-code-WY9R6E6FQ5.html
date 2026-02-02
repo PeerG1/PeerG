@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysium Boutique - Timeless Luxury Awaits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); 
+            color: #e0e0e0; 
+            overflow-x: hidden; 
+        }
+        header { 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); 
+            color: #f8f8f8; 
+            padding: 20px; 
+            position: relative; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        header .logo { font-family: 'Cinzel', serif; font-size: 2.5em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        header .search { display: flex; align-items: center; }
+        header .search input { padding: 10px; border: none; border-radius: 20px 0 0 20px; width: 200px; }
+        header .search button { padding: 10px; background: #ffd700; border: none; border-radius: 0 20px 20px 0; cursor: pointer; }
+        header .user { display: flex; align-items: center; }
+        header .user a { color: #f8f8f8; margin: 0 10px; text-decoration: none; }
+        header .cart { position: relative; }
+        header .cart-count { position: absolute; top: -10px; right: -10px; background: #ff6b6b; color: white; border-radius: 50%; padding: 5px 8px; font-size: 0.8em; }
+        nav { 
+            background: rgba(26, 26, 46, 0.9); 
+            padding: 15px; 
+            text-align: center; 
+            backdrop-filter: blur(10px); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+        }
+        nav a { 
+            color: #f8f8f8; 
+            margin: 0 20px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            transition: all 0.3s; 
+        }
+        nav a:hover { color: #ffd700; }
+        .hero { 
+            background: url('https://via.placeholder.com/1400x500?text=Luxury+Crystal+Chandelier') no-repeat center center; 
+            background-size: cover; 
+            height: 500px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #f8f8f8; 
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7); 
+            position: relative; 
+        }
+        .hero::before { 
+            content: ''; 
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+            background: rgba(0,0,0,0.4); 
+        }
+        .hero h2 { 
+            font-family: 'Cinzel', serif; 
+            font-size: 3em; 
+            margin: 0; 
+            z-index: 1; 
+            position: relative; 
+        }
+        .container { 
+            max-width: 1500px; 
+            margin: 50px auto; 
+            padding: 40px; 
+            background: rgba(255, 255, 255, 0.05); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3); 
+            backdrop-filter: blur(15px); 
+        }
+        .testimonials { 
+            text-align: center; 
+            margin-bottom: 50px; 
+        }
+        .testimonials h2 { 
+            font-family: 'Cinzel', serif; 
+            color: #ffd700; 
+            margin-bottom: 20px; 
+        }
+        .testimonial { 
+            display: inline-block; 
+            width: 30%; 
+            margin: 10px; 
+            padding: 20px; 
+            background: rgba(255, 255, 255, 0.1); 
+            border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+        }
+        .testimonial p { font-style: italic; }
+        .products { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 40px; 
+            margin-bottom: 50px; 
+        }
+        .product { 
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%); 
+            padding: 30px; 
+            text-align: center; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            transition: all 0.4s; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .product:hover { 
+            transform: translateY(-10px) scale(1.02); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
+        }
+        .product img { 
+            width: 100%; 
+            height: 300px; 
+            object-fit: cover; 
+            border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+        }
+        .product h3 { 
+            font-family: 'Cinzel', serif; 
+            margin: 20px 0; 
+            color: #ffd700; 
+        }
+        .product p { 
+            margin: 15px 0; 
+            opacity: 0.9; 
+        }
+        .product button { 
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); 
+            color: #1a1a2e; 
+            padding: 12px 25px; 
+            border: none; 
+            border-radius: 30px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            box-shadow: 0 5px 15px rgba(255,215,0,0.3); 
+        }
+        .product button:hover { 
+            background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%); 
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 20px rgba(255,215,0,0.5); 
+        }
+        .ad { 
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 69, 0, 0.2) 100%); 
+            padding: 30px; 
+            margin: 40px 0; 
+            text-align: center; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+        }
+        .ad img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 15px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+        }
+        .ad a { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); 
+            color: white; 
+            padding: 12px 25px; 
+            text-decoration: none; 
+            border-radius: 30px; 
+            font-weight: 600; 
+            transition: all 0.3s; 
+            box-shadow: 0 5px 15px rgba(255,107,107,0.3); 
+        }
+        .ad a:hover { 
+            background: linear-gradient(135deg, #ee5a24 0%, #ff6b6b 100%); 
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 20px rgba(255,107,107,0.5); 
+        }
+        .sidebar { 
+            float: right; 
+            width: 32%; 
+            margin-left: 40px; 
+        }
+        .sidebar .ad { 
+            margin-bottom: 40px; 
+        }
+        .newsletter { 
+            background: rgba(255, 255, 255, 0.1); 
+            padding: 30px; 
+            text-align: center; 
+            border-radius: 20px; 
+            margin: 40px 0; 
+        }
+        .newsletter input { 
+            padding: 10px; 
+            border: none; 
+            border-radius: 20px; 
+            width: 250px; 
+            margin-right: 10px; 
+        }
+        .newsletter button { 
+            padding: 10px 20px; 
+            background: #ffd700; 
+            border: none; 
+            border-radius: 20px; 
+            cursor: pointer; 
+        }
+        footer { 
+            clear: both; 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); 
+            color: #f8f8f8; 
+            text-align: center; 
+            padding: 30px; 
+            margin-top: 50px; 
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.3); 
+        }
+        footer .links { 
+            display: flex; 
+            justify-content: center; 
+            margin-bottom: 20px; 
+        }
+        footer .links a { 
+            color: #ffd700; 
+            margin: 0 15px; 
+            text-decoration: none; 
+            transition: color 0.3s; 
+        }
+        footer .links a:hover { color: #ffed4e; }
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.5); 
+            justify-content: center; 
+            align-items: center; 
+        }
+        .modal-content { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 10px; 
+            width: 80%; 
+            max-width: 500px; 
+        }
+        .close { 
+            color: #aaa; 
+            float: right; 
+            font-size: 28px; 
+            font-weight: bold; 
+            cursor: pointer; 
+        }
+        .close:hover { color: black; }
+        @media (max-width: 768px) { 
+            header { flex-direction: column; text-align: center; } 
+            .sidebar { float: none; width: 100%; margin-left: 0; } 
+            .products { grid-template-columns: 1fr; } 
+            .testimonial { width: 100%; margin: 10px 0; } 
+            header .logo { font-size: 2em; } 
+            .hero h2 { font-size: 2em; } 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Elysium Boutique</div>
+        <div class="search">
+            <input type="text" placeholder="Search luxury items...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="user">
+            <a href="#" onclick="openModal('login')"><i class="fas fa-user"></i> Login</a>
+            <a href="#" onclick="openModal('signup')"><i class="fas fa-user-plus"></i> Sign Up</a>
+            <div class="cart">
+                <a href="#" onclick="openModal('cart')"><i class="fas fa-shopping-cart"></i></a>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a href="#electronics"><i class="fas fa-laptop"></i> Electronics</a>
+        <a href="#fashion"><i class="fas fa-tshirt"></i> Fashion</a>
+        <a href="#home"><i class="fas fa-home"></i> Home & Garden</a>
+        <a href="#cart"><i class="fas fa-shopping-cart"></i> Cart</a>
+    </nav>
+    <div class="hero">
+        <h2>Indulge in Eternal Elegance</h2>
+    </div>
+    <div class="container">
+        <div class="testimonials">
+            <h2>What Our Admirers Say</h2>
+            <div class="testimonial">
+                <p>"Elysium transformed my wardrobe into a masterpiece. Pure luxury!"</p>
+                <cite>- Sophia R.</cite>
+            </div>
+            <div class="testimonial">
+                <p>"The quality and service are unparalleled. My heart is won!"</p>
+                <cite>- Alexander K.</cite>
+            </div>
+            <div class="testimonial">
+                <p>"Every purchase feels like a dream come true. Highly recommend!"</p>
+                <cite>- Isabella L.</cite>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="ad">
+                <h3>Exclusive Ad: Diamond-Encrusted Phones</h3>
+                <p>20% off on our most luxurious smartphones. Shine bright!</p>
+                <img src="https://via.placeholder.com/350x180?text=Diamond+Phone+Ad" alt="Diamond Phone Ad">
+                <a href="https://example.com/purchase/diamond-phone" target="_blank">Claim Your Sparkle</a>
+            </div>
+            <div class="ad">
+                <h3>Ad: Couture Collection</h3>
+                <p>50% off on designer gowns that steal hearts.</p>
+                <img src="https://via.placeholder.com/350x180?text=Couture+Gown+Ad" alt="Couture Gown Ad">
+                <a href="https://example.com/purchase/couture-gown" target="_blank">Fall in Love</a>
+            </div>
+        </div>
+        <h2>Curated Masterpieces</h2>
+        <div class="products">
+            <div class="product">
+                <img src="https://via.placeholder.com/350x300?text=Platinum+Headphones" alt="Platinum Headphones">
+                <h3>Platinum Wireless Headphones</h3>
+                <p>Crystal-clear sound in a jewel-encrusted design. $299.99</p>
+                <button onclick="addToCart('Platinum Wireless Headphones', 299.99)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/350x300?text=Gold+Smart+Watch" alt="Gold Smart Watch">
+                <h3>24K Gold Smart Watch</h3>
+                <p>Timeless elegance with cutting-edge tech. $499.99</p>
+                <button onclick="addToCart('24K Gold Smart Watch', 499.99)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/350x300?text=Elite+Gaming+Laptop" alt="Elite Gaming Laptop">
+                <h3>Elite Gaming Laptop</h3>
+                <p>Unmatched power in a sleek, luxurious chassis. $2499.99</p>
+                <button onclick="addToCart('Elite Gaming Laptop', 2499.99)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="ad" style="clear: both;">
+            <h3>Ad: Opulent Home Treasures</h3>
+            <p>Exclusive deals on gold-plated kitchen wonders.</p>
+            <img src="https://via.placeholder.com/1000x250?text=Opulent+Home+Ad" alt="Opulent Home Ad">
+            <a href="https://example.com/purchase/opulent-kitchen" target="_blank">Discover Bliss</a>
+        </div>
+        <div class="newsletter">
+            <h3>Stay Enchanted</h3>
+            <p>Subscribe for exclusive offers and luxury updates.</p>
+            <input type="email" placeholder="Your email...">
+            <button>Subscribe</button>
+        </div>
+    </div>
+    <footer>
+        <div class="links">
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+            <a href="#shipping">Shipping Info</a>
+            <a href="#returns">Returns</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+        </div>
+        <p>&copy; 2023 Elysium Boutique. Crafted for the Discerning Soul.</p>
+    </footer>
